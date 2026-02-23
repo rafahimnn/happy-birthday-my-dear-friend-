@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Wait for countdown please </title>
+    <title>Wait for countdown!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@700&family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -857,7 +857,8 @@
             border: 3px solid white;
         }
         
-        .video-wrapper video {
+        .video-wrapper video,
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -1173,30 +1174,12 @@
             transform: scale(1.03);
             box-shadow: 0 0 25px gold;
         }
-        
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 3px solid gold;
-            margin-top: 40px;
-            font-size: 15px;
-            color: #2c3e50;
-            background: rgba(255,255,255,0.2);
-        }
-        
-        @media (max-width: 768px) {
-            .reasons-header h1 { font-size: 2.8rem; }
-            .reason-text { font-size: 1.1rem; }
-            .photo-header h1 { font-size: 2.8rem; }
-            .photo-container { grid-template-columns: 1fr; }
-            .video-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
     <div class="floating-elements" id="floatingElements"></div>
 
-    <!-- Audio unchanged -->
+    <!-- Audio files -->
     <audio id="countdownAudio" preload="auto">
         <source src="https://raw.githubusercontent.com/rafahimnn/happybirthday/refs/heads/main/countdown.mp3" type="audio/mpeg">
     </audio>
@@ -1205,7 +1188,7 @@
         <source src="https://raw.githubusercontent.com/rafahimnn/happybirthday/refs/heads/main/birthday%20bro.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- New video background: golden confetti -->
+    <!-- Video background: golden confetti -->
     <video class="video-bg" autoplay muted loop playsinline>
         <source src="https://assets.mixkit.co/videos/preview/mixkit-golden-confetti-falling-on-a-dark-background-1099-large.mp4" type="video/mp4">
     </video>
@@ -1237,6 +1220,7 @@
         <img src="" id="lightboxImg">
     </div>
 
+    <!-- Countdown Screen -->
     <div class="countdown-screen" id="countdownScreen">
         <h1 class="countdown-title">⏰ Time Left for Surprise</h1>
         <div class="countdown-box">
@@ -1257,15 +1241,17 @@
                 <span class="count-label">Secs</span>
             </div>
         </div>
-        <div class="countdown-message" id="countdownMessage">Wait Surprise..!</div>
+        <div class="countdown-message" id="countdownMessage">Wait for 24 February Surprise..!</div>
     </div>
 
+    <!-- Greeting Screen -->
     <div class="greeting-screen" id="greetingScreen">
         <h1 id="greetingH1">Happy Birthday, Shayan! 🎉</h1>
         <div class="greeting-text" id="greetingText"></div>
-        <button class="enter-btn" onclick="goToCakeScreen()">Let's celebrate your birthday and our friendship! 💕</button>
+        <button class="enter-btn" onclick="goToCakeScreen()">Let's celebrate your birthday! 💕</button>
     </div>
 
+    <!-- Cake Screen -->
     <div class="cake-screen" id="cakeScreen">
         <div class="cake-container">
             <div class="cake-emoji" id="cakeEmoji">🎂</div>
@@ -1275,6 +1261,7 @@
         </div>
     </div>
 
+    <!-- Reasons Screen -->
     <div class="reasons-screen" id="reasonsScreen">
         <div class="reasons-header">
             <h1>Why You're My Best Friend! 💖</h1>
@@ -1284,6 +1271,7 @@
         <button class="reasons-btn" id="reasonsBtn" onclick="handleReasonClick()">Click Here... 💕</button>
     </div>
 
+    <!-- Photo Screen -->
     <div class="photo-screen" id="photoScreen">
         <div class="photo-header">
             <h1>Our Beautiful Moments Together</h1>
@@ -1294,7 +1282,7 @@
             <div class="photo-card" onclick="openLightbox('https://res.cloudinary.com/dpctt0wao/image/upload/v1771773110/RA_Fahim_2025022_fbgoy5.jpg')">
                 <img src="https://res.cloudinary.com/dpctt0wao/image/upload/v1771773110/RA_Fahim_2025022_fbgoy5.jpg" alt="Memory 1" class="photo-img">
                 <div class="photo-date">Happy birthday</div>
-                <div class="photo-caption">Happiest Birthday Shayan Ibrahim  💟🎂🎈.May Allah bless you with boundless happiness 🌷 . ❤️</div>
+                <div class="photo-caption">Happiest Birthday Shayan! May Allah bless you with boundless happiness 🌷 ❤️</div>
             </div>
             <div class="photo-card" onclick="openLightbox('https://res.cloudinary.com/dpctt0wao/image/upload/v1771773071/1690499013509_transcpr_sjigay.jpg')">
                 <img src="https://res.cloudinary.com/dpctt0wao/image/upload/v1771773071/1690499013509_transcpr_sjigay.jpg" alt="Memory 2" class="photo-img">
@@ -1311,24 +1299,34 @@
         <button class="photo-next-btn" onclick="goToVideoScreen()">Our friendship story continues 🎥</button>
     </div>
 
+    <!-- Video Screen - FIXED VERSION -->
     <div class="video-screen" id="videoScreen">
         <h2>A Special Video Message for You</h2>
         <div class="video-container">
             <div class="video-grid">
+                <!-- First Video - Cloudinary MP4 -->
                 <div class="video-card">
                     <h3>India tour 😃</h3>
                     <div class="video-wrapper">
                         <video controls poster="https://res.cloudinary.com/dpctt0wao/image/upload/v1771888471/IMG_2024-02-28-12-44-14-472_fu9okj.jpg">
-                            <source src="https://res.cloudinary.com/dpctt0wao/video/upload/v1771888334/rafahim44-28-02-2024-0001_rrrvsa.mp4">
+                            <source src="https://res.cloudinary.com/dpctt0wao/video/upload/v1771888334/rafahim44-28-02-2024-0001_rrrvsa.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
+                
+                <!-- Second Video - YouTube (Correct iframe method) -->
                 <div class="video-card">
                     <h3>Happy birthday</h3>
                     <div class="video-wrapper">
-                        <video controls poster="https://youtu.be/7tHDN02UH3k?si=1EkM91bWaixB2CHY">
-                            <source src="https://youtu.be/7tHDN02UH3k?si=1EkM91bWaixB2CHY">
-                        </video>
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            src="https://www.youtube.com/embed/7tHDN02UH3k" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -1336,6 +1334,7 @@
         </div>
     </div>
 
+    <!-- Letter Screen -->
     <div class="letter-screen" id="letterScreen">
         <div class="letter-container">
             <h2>A Letter for You 💌</h2>
@@ -1346,10 +1345,11 @@
                 <p>We don't talk anymore, but a part of me will always cherish the friendship we had. ✨</p>
                 <p>Until we meet again, my dear friend. 💝</p>
             </div>
-            <button class="letter-return-btn" id="returnToGreetingBtn" onclick="returnToGreeting()">Happy Birthday, Bestie!</button>
+            <button class="letter-return-btn" id="returnToGreetingBtn" onclick="returnToGreeting()">Happy Birthday, Shayan!</button>
         </div>
     </div>
 
+    <!-- Contact Page -->
     <div class="contact-page" id="contactPage">
         <div class="contact-container">
             <h2><i class="fas fa-envelope"></i> Contact</h2>
@@ -1397,7 +1397,6 @@
         </div>
     </div>
 
-    <!-- All JavaScript remains exactly the same as before (only styles and video changed) -->
     <script>
         (function() {
             emailjs.init("MV90CKf_ZoIgGoU9w");
@@ -1431,21 +1430,25 @@
                 });
         });
 
+        // CONFIG - FIXED DATE FOR FEB 24
         const CONFIG = {
-            month: 1,
-            day: 24,
+            month: 1,        // February (0 = January, 1 = February)
+            day: 24,         // 24th February
             age: 16,
-            name: "Dst"
+            name: "Shayan"
         };
 
+        // Override name from URL if provided
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('name')) {
             CONFIG.name = decodeURIComponent(urlParams.get('name'));
         }
 
+        // Update headings
         document.getElementById('greetingH1').innerText = `Happy Birthday, ${CONFIG.name}! 🎉`;
         document.getElementById('returnToGreetingBtn').innerText = `Happy Birthday, ${CONFIG.name}!`;
 
+        // Floating elements
         function createFloatingElement() {
             const container = document.getElementById('floatingElements');
             const elements = [
@@ -1749,7 +1752,8 @@
             let candlesHtml = '';
             for (let i = 0; i < totalCandles; i++) {
                 const blown = i < candlesBlown ? 'blown' : '';
-                candlesHtml += `<span class="candle ${blown}" onclick=blowCandle"(${i})">🕯️</span>`;
+                // FIXED: Correct quotes for onclick
+                candlesHtml += `<span class="candle ${blown}" onclick="blowCandle(${i})">🕯️</span>`;
             }
             candlesDiv.innerHTML = candlesHtml;
             
@@ -1759,7 +1763,7 @@
                 stopMicrophone();
             } else {
                 const remaining = totalCandles - candlesBlown;
-                statusDiv.textContent = `${remaining} candles burning -Blow or tap`;
+                statusDiv.textContent = `${remaining} candles burning - Tap`;
                 cutBtn.disabled = true;
             }
         }
