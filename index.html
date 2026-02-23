@@ -1318,8 +1318,8 @@
                 <div class="video-card">
                     <h3>India tour 😃</h3>
                     <div class="video-wrapper">
-                        <video controls poster="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&h=340&fit=crop">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <video controls poster="https://res.cloudinary.com/dpctt0wao/image/upload/v1771888471/IMG_2024-02-28-12-44-14-472_fu9okj.jpg">
+                            <source src="https://res.cloudinary.com/dpctt0wao/video/upload/v1771888334/rafahim44-28-02-2024-0001_rrrvsa.mp4">
                         </video>
                     </div>
                 </div>
@@ -1433,7 +1433,7 @@
 
         const CONFIG = {
             month: 1,
-            day: 22,
+            day: 24,
             age: 16,
             name: "Dst"
         };
@@ -1749,7 +1749,7 @@
             let candlesHtml = '';
             for (let i = 0; i < totalCandles; i++) {
                 const blown = i < candlesBlown ? 'blown' : '';
-                candlesHtml += `<span class="candle ${blown}" onclick="blowCandle(${i})">🕯️</span>`;
+                candlesHtml += `<span class="candle ${blown}" onclick="(${i})">🕯️</span>`;
             }
             candlesDiv.innerHTML = candlesHtml;
             
