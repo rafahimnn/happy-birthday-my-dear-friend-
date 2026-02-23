@@ -1749,7 +1749,7 @@
             let candlesHtml = '';
             for (let i = 0; i < totalCandles; i++) {
                 const blown = i < candlesBlown ? 'blown' : '';
-                candlesHtml += `<span class="candle ${blown}" onclick="(${i})">🕯️</span>`;
+                candlesHtml += `<span class="candle ${blown}" onclick=blowCandle"(${i})">🕯️</span>`;
             }
             candlesDiv.innerHTML = candlesHtml;
             
@@ -1759,7 +1759,7 @@
                 stopMicrophone();
             } else {
                 const remaining = totalCandles - candlesBlown;
-                statusDiv.textContent = `${remaining} candles burning - Blow or tap`;
+                statusDiv.textContent = `${remaining} candles burning -Tap`;
                 cutBtn.disabled = true;
             }
         }
